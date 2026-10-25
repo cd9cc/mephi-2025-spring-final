@@ -217,6 +217,17 @@ JUnit 5 + MockMvc (сервисы) и WebTestClient (Gateway), реальная 
 - **DRY**: общий код вынесен в модуль `common` - `ErrorResponse`, роли, валидация дат, контракт Hotel API и
   автоконфигурации обработки ошибок, трассировки, Resource Server, OpenAPI; сервисы его не дублируют.
 
+### Общие классы модуля `common`
+
+- `ErrorResponse` — единый формат ошибки всех сервисов и Gateway; `PageResponse` — формат страницы списка.
+- `NotFoundException` (404), `ConflictException` (409), `ServiceUnavailableException` (503) — исключения бизнес-логики.
+- `Role` — роли пользователей (USER, ADMIN).
+- `@ValidDateRange` / `DateRange` — проверка `endDate > startDate` для запросов с периодом.
+- `contract.hotel.*` — DTO внутренних эндпойнтов Hotel Service (`confirm-availability`, `release`),
+  общие для вызывающей и вызываемой стороны.
+- `trace.*`, `security.*`, `web.*`, `openapi.*` — трассировка `X-Trace-Id`, JWT и автоконфигурации
+  веб-слоя сервисов (ADR-3).
+
 ## 11. Код-стиль
 
 - Единый стиль проверяется Checkstyle (`config/checkstyle/checkstyle.xml`) в `./gradlew check`/`build` с нулём
