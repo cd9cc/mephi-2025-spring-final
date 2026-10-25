@@ -88,17 +88,6 @@
 - `idx_room_reservations_room_dates (room_id, start_date, end_date)` — проверка пересечений при блокировке;
 - `idx_room_reservations_booking_id (booking_id)` — поиск блокировки при `release`.
 
-## Общие классы (модуль `common`)
-
-- `ErrorResponse` — единый формат ошибки всех сервисов и Gateway; `PageResponse` — формат страницы списка.
-- `NotFoundException` (404), `ConflictException` (409), `ServiceUnavailableException` (503) — исключения бизнес-логики.
-- `Role` — роли пользователей (USER, ADMIN).
-- `@ValidDateRange` / `DateRange` — проверка `endDate > startDate` для запросов с периодом.
-- `contract.hotel.*` — DTO внутренних эндпойнтов Hotel Service (`confirm-availability`, `release`),
-  общие для вызывающей и вызываемой стороны.
-- `trace.*`, `security.*`, `web.*`, `openapi.*` — трассировка `X-Trace-Id`, JWT и автоконфигурации
-  веб-слоя сервисов (ADR-3).
-
 ## Демо-данные
 
 При `demo-data.enabled=true` (по умолчанию, отключается `DEMO_DATA=false`; в тестах отключено) пустые базы
