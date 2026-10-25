@@ -1,0 +1,3 @@
+ru.mephi.hotelbooking.common.web.WebAutoConfiguration
+ru.mephi.hotelbooking.common.security.ResourceServerAutoConfiguration
+ru.mephi.hotelbooking.common.openapi.OpenApiAutoConfiguration

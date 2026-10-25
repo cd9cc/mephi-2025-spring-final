@@ -1,0 +1,6 @@
+eureka:
+  client:
+    enabled: false
+
+demo-data:
+  enabled: false
